@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Poll Results</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f7f7f7;
+      }
+      h2 {
+        text-align: center;
+      }
+      .poll-option {
+        display: flex;
+        justify-content: space-between;
+        margin: 8px 0;
+        padding: 10px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>📊 Live Poll Results</h2>
+    <div id="poll-results">Loading...</div>
+
+    <script>
+      const pollId = 1; // Replace with your actual poll ID
+      const pollResultsDiv = document.getElementById("poll-results");
+
+      // Connect to WebSocket
+      const socket = new WebSocket("ws://localhost:3000");
+
+      socket.onopen = () => {
+        console.log("✅ WebSocket connected");
+        // Optionally tell the backend what poll we're watching
+        socket.send(JSON.stringify({ type: "subscribe", pollId }));
+      };
+
+      socket.onmessage = async (event) => {
+        const msg = JSON.parse(event.data);
+
+        if (msg.type === "pollUpdate" && msg.pollId === pollId) {
+          const response = await fetch(`http://localhost:3000/polls/${pollId}`);
+          const poll = await response.json();
+
+          pollResultsDiv.innerHTML = poll.results
+            .map(
+              (option) =>
+                `<div class="poll-option">
+            <span>${option.text}</span>
+            <strong>${option.vote_count} votes</strong>
+          </div>`
+            )
+            .join("");
+        }
+      };
+
+      socket.onerror = (err) => {
+        console.error("WebSocket error:", err);
+      };
+    </script>
+  </body>
+</html>
