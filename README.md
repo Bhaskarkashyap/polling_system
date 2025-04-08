@@ -23,13 +23,15 @@ cd realtime-polling-system
 
 ### 2. Create a .env file in the project root
 
-PORT=port
-PG_USER=postgres
-PG_PASSWORD=password
-PG_DATABASE=database_name
-PG_HOST=postgres
-PG_PORT=port
-KAFKA_BROKER=kafka:9092
+- **PORT**= port
+- **PG_USER**= postgres
+- **PG_PASSWORD**= password
+- **PG_DATABASE**= database_name
+- **PG_HOST**= postgres
+- **PG_PORT**= port
+- **KAFKA_BROKER**= kafka:9092
+
+---
 
 ### . Start all service with docker
 
