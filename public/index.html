@@ -31,7 +31,7 @@
     <div id="poll-results">Loading...</div>
 
     <script>
-      const pollId = 1; // Replace with your actual poll ID
+      const pollId = 1;
       const pollResultsDiv = document.getElementById("poll-results");
 
       // Connect to WebSocket
@@ -39,7 +39,7 @@
 
       socket.onopen = () => {
         console.log("✅ WebSocket connected");
-        // Optionally tell the backend what poll we're watching
+
         socket.send(JSON.stringify({ type: "subscribe", pollId }));
       };
 
