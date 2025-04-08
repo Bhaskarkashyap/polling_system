@@ -34,13 +34,13 @@ This project is a scalable backend polling system built with **Node.js**, **Kafk
 
 ---
 
-### . Start all service with docker
+### 3. Start all service with docker
 
 Run
 
 - **docker-compose up --build**
 
-### 🔧 API Usage
+### 4. API Usage
 
 ✅ Create a Poll
 
@@ -67,4 +67,4 @@ GET /polls/:id
 
 GET /leaderboard
 
-### Run in public/index.html file for better view on browser
+### 5. Run in public/index.html file for better view on browser
