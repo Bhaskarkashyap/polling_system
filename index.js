@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "*", // or wherever your frontend is running
+    origin: "*",
   })
 );
 

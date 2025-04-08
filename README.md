@@ -35,7 +35,9 @@ This project is a scalable backend polling system built with **Node.js**, **Kafk
 
 ### . Start all service with docker
 
-docker-compose up --build
+Run
+
+- **docker-compose up --build**
 
 ### 🔧 API Usage
 
