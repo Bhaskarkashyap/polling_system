@@ -25,10 +25,10 @@ This project is a scalable backend polling system built with **Node.js**, **Kafk
 ### 2. Create a .env file in the project root
 
 - **PORT**= port
-- **PG_USER**= postgres
+- **PG_USER**= username
 - **PG_PASSWORD**= password
 - **PG_DATABASE**= database_name
-- **PG_HOST**= postgres
+- **PG_HOST**= host
 - **PG_PORT**= port
 - **KAFKA_BROKER**= kafka:9092
 
