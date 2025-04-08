@@ -46,8 +46,8 @@ setupWebSocket(wss);
 
 (async () => {
   await initDB();
-  startKafkaConsumer(); // Real-time vote processing
-  server.listen(process.env.PORT, "0.0.0.0", () => {
+  startKafkaConsumer();
+  server.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);
   });
 })();
