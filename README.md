@@ -18,6 +18,7 @@ This project is a scalable backend polling system built with **Node.js**, **Kafk
 
 - **git clone https://github.com/your-username/realtime-polling-system.git**
 - **cd realtime-polling-system**
+- **npm install**
 
 ---
 
@@ -65,3 +66,5 @@ Content-Type: application/json
 GET /polls/:id
 
 GET /leaderboard
+
+### Run in public/index.html file for better view on browser
